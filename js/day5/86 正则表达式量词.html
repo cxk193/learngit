@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        /*
+            {num}   取多少个
+
+            {0} 取到边界
+            
+            {num,} 贪婪匹配
+
+            {num1,num2} 取最大的那个一值
+        */
+        let str = '123'
+        let reg = /\d{3}/
+        let reg1 = /\d{0}/
+        let reg2 = /\d{0,3}/
+        let reg3 = /\d{0,}/
+        console.log(reg.test(str),reg1.test(str),reg2.test(str),reg3.test(str))
+    
+    </script>
+</body>
+</html>

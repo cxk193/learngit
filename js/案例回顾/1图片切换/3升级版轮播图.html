@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style:none;
+        }
+        #wrap{
+            position: relative;
+            width: 529px;
+            height: 300px;
+            /* border:2px solid #000; */
+            margin:100px auto 0;
+            user-select: none;
+        }
+        ul li.active{
+            display:block;
+        }
+        ul li{
+            display: none;
+            position: absolute;
+            width: 529px;
+            height: 300px;
+        }
+        .btn{
+            position: absolute;
+            width:25px;
+            height: 50px;
+            background-color: rgba(0,0,0,0.5);
+            color:#fff;
+            font-size:20px;
+            text-align:center;
+            line-height:50px;
+            cursor: pointer;
+            top:calc( 50% - 25px );
+        }
+        .right{
+            right:0;
+        }
+        .checkBtn{
+            position:absolute;
+            top:-30px;
+            /* width:75px; */
+            height:30px;
+        }
+        .checkBtn span{
+            float:left;
+            width: 75px;
+            height:30px;
+            background-color: #ccc;
+            font-size:14px;
+            color:#fff;
+            text-align:center;
+            line-height:30px;
+            cursor:pointer;
+        }
+        .checkBtn span.on{
+            background-color:#90f;
+        }
+        p.description{
+            position:absolute;
+            width:100%;
+            height:30px;
+            background-color: rgba(0,0,0,0.3);
+            text-align:center;
+            line-height: 30px;
+            font-weight:bold;
+            color:#fff;
+        }
+        p.top{
+            top:0;
+        }
+        p.bottom{
+            bottom:0;
+        }
+    </style>
+</head>
+<body>
+        <div id="wrap">
+            <div class="checkBtn">
+                <span class='on'> 循环切换 </span>
+                <span> 单边切换 </span>
+            </div>
+            <ul>
+                <li class='active'><img src="../images/1.jpg" alt="" width='100%' height='100%'></li>
+                <li><img src="../images/2.jpg" alt="" width='100%' height='100%'></li>
+                <li><img src="../images/3.jpg" alt="" width='100%' height='100%'></li>
+                <li><img src="../images/4.jpg" alt="" width='100%' height='100%'></li>
+                <li><img src="../images/5.jpg" alt="" width='100%' height='100%'></li>
+            </ul> 
+            <div class="btn left"> < </div>
+            <div class="btn right"> > </div>
+            <p class="description top"> <span class='text'>1</span>/5 </p>
+            <p class="description bottom"> A </p>
+        </div>
+
+        <script>
+        
+            var left = document.getElementsByClassName("left")[0]
+            var right = document.getElementsByClassName("right")[0]
+            var oli = document.querySelectorAll('li')
+            var checkBtn = document.querySelectorAll('.checkBtn span')
+            var text = document.getElementsByClassName('text')[0]
+            var bottom = document.querySelector('.bottom')
+
+            var index = 0;
+            var arr = ["A","B","C","D","E"];
+            var mark = true
+            //loop
+            checkBtn[0].onclick = function(){
+                checkBtn[0].classList.add('on')
+                checkBtn[1].classList.remove('on')
+                mark = true
+            }
+            //单边
+            checkBtn[1].onclick = function(){
+                checkBtn[0].classList.remove('on')
+                checkBtn[1].classList.add('on')
+                mark = false
+            }
+            left.onclick = function(){
+                oli[index].classList.remove('active')
+                index--;
+                if(mark){
+                    if(index<0){
+                        index = 4
+                    }
+                }else{
+                    if(index<0){
+                        index = 0
+                    }
+                }
+                bottom.innerHTML = arr[index]
+                text.innerHTML = index - 1
+                oli[index].classList.add('active')
+            }
+            right.onclick = function(){
+                oli[index].classList.remove('active')
+                index++;
+                if(mark){
+                    if(index>4){
+                        index = 0
+                    }
+                }else{
+                    if(index>4){
+                        index = 4
+                    }
+                }
+                bottom.innerHTML = arr[index]
+                text.innerHTML = index+1
+                oli[index].classList.add('active')
+            }
+        </script>
+</body>
+</html>

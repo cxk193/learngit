@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            0 false '' unedfined NaN null
+
+            除了数字为零的其他数字转为布尔值都是    true
+            所有字符串都为true
+        */
+        
+        var boo = Boolean(0)
+        var boo1 = Boolean(1)
+        var boo2 = Boolean('')
+        var boo3 = Boolean("str")
+        var boo4 = Boolean(undefined)
+        var boo5 = Boolean(null)
+        var boo6 = Boolean(NaN)
+                    //false true false true false false false
+        console.log( boo,boo1,boo2,boo3,boo4,boo5,boo6)
+
+    </script>
+</body>
+</html>

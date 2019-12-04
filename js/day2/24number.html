@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            Number() 返回值 数字
+
+            //null 可以被转化为0;
+            //undefine 会被Number转化为NaN;
+            //true 可以被转化为1;
+            //false 可以被转化为0;
+            //[] 0
+            //{} NaN
+        */
+
+        var num = Number('123')
+        // Number 方法转数字时,遇到非数字,会出现   NaN (not a Number)
+        var num1 = Number('123px')
+        var num2 = Number(false)
+        var num3 = Number(true)
+        var num4 = Number(undefined)
+        var num5 = Number(null)
+                    //123 NaN 0 1 NaN 0
+        console.log(num,num1,num2,num3,num4,num5)
+    </script>
+</body>
+</html>

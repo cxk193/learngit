@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            使用call改变Person的this指向,Animal构造函数引用他里面的属性和方法,(引用的前提是必须将属性和方法做为实参传递过来)
+        */
+        function Person(name,age){
+            this.name = name
+        }
+        let person = new Person('123',12)
+        function Animal(name){
+            Person.call(this,name)
+        }
+        let animal = new Animal('567')
+        console.log(animal.name)
+    
+    </script>
+</body>
+</html>

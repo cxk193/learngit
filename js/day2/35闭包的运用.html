@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul li{
+            float: left;
+            width:100px;
+            height:30px;
+            background-color: #0f0;
+            text-align:center;
+            list-style: none;
+            line-height:30px;
+            margin-right:5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+        <ul>
+            <li>1</li> <li>2</li> <li>3</li> <li>4</li> <li>5</li>
+            <li>6</li> <li>7</li> <li>8</li> <li>9</li> <li>10</li>
+        </ul>
+
+        <script>
+        
+            var li = document.querySelectorAll("li")
+            for(var i=0;i<li.length;i++){
+
+                (function(index,item){
+                    item.onclick = function(){
+                        alert(1)
+                    }
+                } (i,li[i]))
+
+            }
+
+            
+        </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .tab{
+			width: 400px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+            margin:50px auto;
+		}
+		.tab-head{
+			font-size: 0;
+			border-bottom: 1px solid #ccc;
+		}
+		.tab-head span{
+			display: inline-block;
+            width:25%;
+            height:40px;
+			font-size: 16px;
+            text-align:center;
+            line-height:40px;
+		}
+		/* .tab-head span:hover, */
+		.tab-head span.on{
+			background: #121212;
+			color: #fff;
+			cursor: pointer;
+		}
+		.body{
+			height: 250px;
+		}
+		.body div{
+			display: none;
+			height: 100%;
+			overflow: hidden;
+		}
+		.body div.on{
+			display: block;
+		}
+    </style>
+</head>
+<body>
+    <div class="tab">
+            <div class="tab-head">
+                <span class='on'>图片1</span>
+                <span>图片2</span>
+                <span>图片3</span>
+                <span>图片4</span>
+            </div>
+            <div class="body">
+                <div class='on'><img src='../images/11.jpg' width='100%' height='100%'/></div>
+                <div><img src='../images/22.jpg' width='100%' height='100%'/></div>
+                <div><img src='../images/33.jpg' width='100%' height='100%'/></div>
+                <div><img src='../images/44.jpg' width='100%' height='100%'/></div>
+            </div>
+    </div>
+    <script>
+    
+        var span = document.querySelectorAll('.tab-head span')
+        var pic = document.querySelectorAll('.body div')
+        var index = 0
+        for(var i=0;i<span.length;i++){
+            (function(i){
+                span[i].onmouseenter = function(){
+                span[index].classList.remove('on')
+                pic[index].classList.remove('on')
+                index = i
+                span[index].classList.add('on')
+                pic[index].classList.add('on')
+            }
+            }(i))
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+        #box{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            border: 1px solid red;
+            border-radius: 50%;
+        }
+        #ball{
+            position: absolute;
+            left:400px;
+            top:200px;
+            width:10px ;
+            height:10px;
+            background-color: blue;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="ball"></div>
+    </div>
+
+    <script>
+        
+        var ball = document.querySelector('#ball')
+
+        var deg = 0
+        var r = 200
+        var x = 200
+        var y = 200
+
+        function fn(){
+            //角度值 = 3.14/180*deg
+            var rad = Math.PI/180*deg
+            //圆上的一点 (x1,y1)
+            var x1 = x + Math.cos(rad)*r
+            var y1 = y + Math.sin(rad)*r
+            deg += 1
+            ball.style.left = x1 - 5 + "px"
+            ball.style.top = y1 - 5 + "px"
+        }
+        fn()
+        setInterval(fn,1000/60)
+
+    </script>
+</body>
+</html>

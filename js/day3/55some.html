@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    //迭代数组 只要数组中有一个符合条件,就返回 true
+    var arr = [1,5,8,"冰冰",5,4]
+    var result = arr.some((item,index,arr)=>{
+        return item === "冰冰"
+    })
+    console.log(result)
+
+    </script>
+</body>
+</html>

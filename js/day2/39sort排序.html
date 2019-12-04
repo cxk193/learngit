@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        var arr = [1,5,9,7,3,2,8,6,4]
+
+        //该函数比较a,b两个值,然后返回一个用于说明这两个值的相对顺序的数字
+
+        arr.sort(function(a,b){
+            //若 a<b,则a在数组中需要排在b的前面,返回一个小于零的值
+            //若a=0,则返回零
+            //若a>b,则返回一个大于零的值
+
+            return a-b  //数组正序排列
+        })
+        console.log(arr)   // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+        // arr.sort(function(a,b){
+        //     return 1  //返回一个大于0的数 正序
+        // })
+        // console.log(arr)   // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+        // arr.sort((a,b)=>{
+        //     return b-a //数组    倒序排列
+        // })
+        // console.log(arr)    //[9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+        arr.sort((a,b)=>{
+            return -1 //返回一个小于零的数 倒序
+        })
+        console.log(arr)    //[9, 8, 7, 6, 5, 4, 3, 2, 1]
+    </script>
+</body>
+</html>

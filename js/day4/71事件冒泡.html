@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+        .wrap{
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+        }
+       
+    </style>
+</head>
+<body>
+    
+    <div class="wrap">
+        <div class="box">
+        </div>
+    </div>
+    <script>
+
+            /*
+                事件冒泡    (DOM零级写法,相同函数会出现函数覆盖)
+                    事件冒泡从子元素冒泡到父元素
+                        box > wrap > document
+
+                事件冒泡的本质就是依次向上触发事件
+
+                阻止事件冒泡
+                    给函数传入一个形参接收event对象
+                    enent.stopPropagation()
+            */
+
+        var wrap = document.querySelector('.wrap')
+        var box = document.querySelector('.box')
+
+       document.onclick = function(){
+           console.log('document')
+       }
+       wrap.onclick = function(e){
+           console.log('wrap')
+            e.stopPropagation()
+       }
+       box.onclick = function(e){
+           e.stopPropagation()
+           console.log('box')
+       }
+    
+    </script>
+</body>
+</html>

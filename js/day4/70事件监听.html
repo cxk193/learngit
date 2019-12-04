@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+        .wrap{
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+        }
+       
+    </style>
+</head>
+<body>
+    
+    <div class="wrap">
+        <div class="box">
+        </div>
+    </div>
+    <script>
+
+            /*  事件监听    (DOM二级的写法,不会出现函数覆盖的现象)
+
+                事件监听的三个参数
+                    事件类型    (不加on)
+                    事件函数    (传入了一个event对象)
+                    布尔值 
+                        true 事件捕获   从父元素到子元素 document > wrap > box
+                        fasle事件冒泡   从子元素到父元素 box > wrap > document
+            
+            */
+
+        var wrap = document.querySelector('.wrap')
+        var box = document.querySelector('.box')
+
+        document.addEventListener("click",function(e){
+            console.log("document")
+        },true)
+        wrap.addEventListener("click",function(e){
+            console.log("wrap")
+        },true)
+        box.addEventListener("click",function(e){
+            console.log("box")
+        },true)
+    
+    </script>
+</body>
+</html>

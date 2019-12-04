@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //匹配连续重复为一组的字符
+        let str = 'aaabbbbbccc'
+        let reg = /(\w)\1/g
+
+        console.log(str.match(reg))
+    </script>
+</body>
+</html>

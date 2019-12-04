@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            用关键字 var 定义的变量会有 变量提升(定义的变量会被提升到全局作用域的顶部,相同变量名称的变量后者覆盖前者)
+
+
+            定义变量名时需要注意：
+            1.变量名无需过多修饰，太长
+            2.言简意赅的表达出这个变量名的用途
+            3.严格区分大小写
+            4.不能用中文定义变量
+            5.不能用关键字和保留字定义 例如：var
+
+        */
+        var num = 193
+        var num = 123
+        console.log(num)    //123
+        var cxk = '你打篮球像蔡徐坤'
+
+        //变量不仅可以保存数字，字符串，布尔值...，还可以保存一个js获取到的原生对象
+        var ul = document.getElementsByTagName('li')
+
+
+    </script>
+</body>
+</html>

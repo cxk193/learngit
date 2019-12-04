@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <script>
+    
+        /*  表单事件
+                onfocus 获取焦点
+                onblur  失去焦点事件
+                oninput   input框里面的内容增加或发生改变时触发
+                onchange  要具备 失去内容和失去焦点这两个条件
+        */
+
+        var input = document.querySelector('input')
+
+        input.onfocus = function(){
+            console.log('触发了焦点事件') 
+        }
+
+        input.onblur = function(){
+            console.log('失去焦点事件')
+        }
+
+        input.oninput = function(){
+            console.log(this.value)
+        }
+        input.onchange = function(){
+            console.log(this.value)
+        }
+
+    
+    </script>
+</body>
+</html>

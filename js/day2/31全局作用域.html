@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        //全局作用域, 声明的变量 挂载到window下面
+        var num = 123
+
+        /*
+            作用域 : 代码有效的区域
+                全局作用域
+                局部作用域  (函数作用域,必须是函数,像 if,swich,while不是作用域,而是一个代码块)
+            
+            局部可以访问全局,全局可以访问局部
+        */
+        //函数中拿值的时候遵循就近原则
+        function fn(){
+            var num = 456
+            var cxk = '蔡徐坤'
+            console.log(num)
+        }
+        fn()
+        // console.log(cxk)    cxk is not defined
+
+        //定义两个函数,并且函数名一样,会出现函数覆盖的情况(后来居上)
+        function every(){
+            console.log(123)
+        }
+        every()
+
+        function every(){
+            console.log(456)
+        }
+        every()
+
+
+
+    </script>
+</body>
+</html>

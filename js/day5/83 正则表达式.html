@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        /*
+            regular Expression
+
+            用于匹配(检索)相对的内容
+             
+            reg.test() 检测对象是否满足条件    返回true或false
+            
+            注意:match是字符串方法
+            str.match() 检测对象是否满足条件    返回匹配的字符
+        */
+        //直接量写法
+        var str = '198'
+        var reg = /^[0-9]/g
+        console.log(reg.test(str))
+        console.log(str.match(reg)) 
+
+
+
+    </script>
+</body>
+</html>

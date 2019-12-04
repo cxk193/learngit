@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>filter过滤</title>
+</head>
+<body>
+    <script>
+        
+        //过滤就是将数组中符合条件的值 return 给函数 ,不会修改原来的函数
+
+        var arr = ['冰冰',2001,18,function(){},175,60]
+
+        var newArr =  arr.filter((item,index,arr)=>{
+            
+            return  item === '冰冰'
+        })
+
+        console.log(arr)
+        console.log(newArr)
+    </script>
+</body>
+</html>

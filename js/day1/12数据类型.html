@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+            ES5的6中数据类型
+            number(数字)
+            string(字符串)
+            boolean(布尔值)
+            undefined(无值)
+            null(无对象)
+            object(对象)
+
+            typeof  检测数据类型的运算符
+        */
+
+        // Number 数字类型
+        var num = 123
+        var num1 = '123'
+        console.log( typeof num , typeof num1)
+
+        //string    无论是带 单引号 还是 双引号 的字符都是 string类型
+        var str = '冰冰'
+        var str1 = "0"
+        var str2 = "true"
+        var str3 = "false"
+        var str4 = "undefined"
+        var str5 = "null"
+
+        console.log( typeof str , typeof str1,typeof str2,typeof str3,typeof str4,typeof str5)
+
+        //boolean 布尔值只有两种情况  true(真) false(假)
+        var tr = true
+        var fa = false
+        console.log(typeof tr,typeof fa)
+
+        //undefined 
+        var un; //只定义未赋值的变量
+        var un1 = undefined
+        console.log(typeof un,typeof un1)
+
+        //null 表示一个不存在的对象 
+        var div = document.getElementById('odiv')
+        console.log(div) //null
+        console.log(typeof div) //object
+
+    </script>
+</body>
+</html>

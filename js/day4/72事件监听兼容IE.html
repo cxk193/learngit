@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        /*
+        事件监听兼容IE写法
+            el.attachEvent 
+            除了监听的的事件类型 要加上on以外,其他的和el.addEventListener一毛一样
+        */
+
+        document.addEventListener('click',function(){
+            console.log('除了IE低版本,其他都能用')
+        },false)
+
+        document.attachEvent('onclick',function(){
+            console.log('兼容IE低版本孤儿')
+        },false)
+
+        //兼容IE低版本 enent对象
+        document.onclick = function(e){
+            var e = e || window.event
+        }
+    </script>
+</body>
+</html>

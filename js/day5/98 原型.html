@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*
+        每一个构造函数都有一个prototype属性
+        
+        Person.prototype 是构造函数Person的原型
+        
+        原型是同一个构造函数实例的不同对象的公共仓库,没有的属性会到原型当中找
+
+    */
+    // 原型
+    Person.prototype.age=18
+
+    //构造器
+    function Person(name){
+        this.name = name
+    }
+
+    let person = new Person('冰冰')
+    let person1 = new Person('兜兜')
+
+    console.log(person)
+    //构造器里面没有的属性会到原型当中去找
+    console.log(person1.age)
+
+    //属性覆盖
+    person1.age = 20
+    console.log(person1.age)
+
+    
+    </script>
+</body>
+</html>

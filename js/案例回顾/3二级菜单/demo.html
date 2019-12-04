@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+            html,body{width: 100%;}
+            #wrap{
+                width: 250px;
+                margin:50px auto;
+            }
+            div{
+                width: 250px;
+                margin-bottom:5px; 
+                line-height: 50px;
+                text-align: center;
+                cursor: pointer;
+            }
+            p{
+                width: 100%;
+                height: 50px;
+                border: 1px solid black;
+                background-color:deeppink;
+            }
+            ul.list{
+                display: none;
+                width: 100%;
+                list-style: none;
+            }
+            li{
+                width: 100%;
+                background-color: #f9f;
+                cursor: pointer;
+                margin-top:2px;
+            }
+            li:hover{
+                background-color: purple;
+            }
+        </style>
+</head>
+<body>
+    <div id="wrap">
+        <div>
+            <p>火锅</p>
+            <ul class="list" style='display:block;'>
+                <li>木耳</li>
+                <li>茼蒿</li>
+                <li>笋干</li>
+                <li>鱼丸</li>
+                <li>肉丸</li>
+            </ul>
+        </div>
+        <div>
+            <p>烧烤</p>
+            <ul class="list">
+                <li>鸡爪</li>
+                <li>韭菜</li>
+                <li>龙虾</li>
+                <li>生蚝</li>
+                <li>肥牛</li>
+            </ul>
+        </div>
+        <div>
+            <p>甜点</p>
+            <ul class="list">
+                <li>酸奶</li>
+                <li>龟苓膏</li>
+                <li>蛋糕</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var title = document.querySelectorAll('#wrap>div>p')
+        var list = document.querySelectorAll('.list')
+        for(var i=0;i<title.length;i++){
+            title[i].mark =false
+            title[0].mark = true             
+            title[i].i = i
+            title[i].onclick = function(){
+                if(this.mark){
+                    list[this.i].style.display = 'none'
+                    this.mark = true
+                }else{
+            //再次遍历的目的是将所有list设置隐藏,将所有title的开关设置为关闭状态
+            //从而保证只有一个二级菜单处于显示状态
+            //for循环嵌套for循环,里面声明的循环变量不能重复
+                    for(var j=0;j<list.length;j++){
+                        list[j].style.display = 'none'
+                        title[j].mark = false
+                    }
+                    list[this.i].style.display= 'block'
+                    this.mark = !this.mark
+                }
+            }
+        }
+    </script>
+</body>
+</html>

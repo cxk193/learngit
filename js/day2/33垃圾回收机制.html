@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        /*
+            垃圾回收机制
+                使用完这各变量就会对着个变量销毁
+        */
+        function rubsh(){
+            var a=3
+            a++
+            console.log(a)
+        }
+        rubsh() //4
+        rubsh() //4
+        rubsh() //4
+        rubsh() //4
+
+
+        //子函数引用父函数的值的时候,会把这个值保存起来
+        function fn(){
+            var a = 1
+            return function fn1(){
+                a++;    //当前函数没有的变量,会向上以及函数去找这个变量
+                console.log(a)
+            }
+        }
+
+        var b = fn()
+        b()
+        b()
+        b()
+        b()
+        b()
+
+    </script>
+</body>
+</html>

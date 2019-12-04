@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+        <div class="box5"></div>
+    </div>
+    <script>
+    let box = document.querySelector('.box')
+    let box1 = document.querySelector('.box1')
+
+    //childNodes  获取所有子节点,包括文本节点,返回NodeList
+    /*
+        nodeName    节点名称
+        nodeType    节点类型
+    */
+    console.log(box.childNodes)
+
+    //children  获取到一个节点的类数组
+    console.log(box.children)
+
+    //parentNode    返回父节点 
+    console.log(box1.parentNode)
+
+    //removerChild()    父元素删除子节点
+    box.removeChild(box1)
+    
+    //document.createElement() 创建子节点
+    var wrap = document.createElement('ul')
+    console.log(wrap)
+    
+    //appendChild() 插入子节点 在最后面插入
+    box.appendChild(wrap)
+
+    //cloneNode() 默认值为false  true:深复制    false:浅复制
+    var qian = box.cloneNode()  
+    var shen = box.cloneNode(true)  //深复制:连同子元素一起复制
+    
+    console.log(qian)
+    console.log(shen)
+
+
+    </script>
+</body>
+</html>

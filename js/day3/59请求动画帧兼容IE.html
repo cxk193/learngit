@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    
+        /*
+        
+            requestAnimationFrame()是挂载到window下面的一个API
+
+            而setIterval() 兼容性比较强
+        */
+
+
+        window.requestAnimationFrame = window.requestAnimationFrame || function(){
+            return  setInterval(fn,1000/60) 
+        }
+
+        window.cancelAnimationFrame = window.cancelAnimationFrame || clearTimeout;
+        
+        window.requestAnimationFrame = window.requestAnimationFrame || function(){
+            return setTimeout( fn ,1000/60 )
+        }
+        window.cancelAnimationFrame = window.cancelAnimationFrame || clearTimeout;
+    
+        
+        //要想用请求动画帧递归这个函数,首先函数必须调用一次
+        fn() 
+        var aniam = null
+        function fn(){
+            console.log(1)
+            aniam = requestAnimationFrame(fn)
+        }
+        /*
+        *	requestAnimationFrame()	请求动画帧
+        * 	cancelAnimationFrame() 清除动画帧
+        *  清除动画帧的时候需要将请求动画帧存储到一个对象当中,
+        * 	然后将请求动画帧的对象放到cancelAnimationFrame()这个高阶函数当中
+        *
+		*/
+        document.onclick = function(){
+            cancelAnimationFrame(aniam)
+        }
+
+    </script>
+</body>
+</html>

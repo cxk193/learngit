@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*捕获与非捕获
+            A||B
+
+            正则断言:
+                先判断是否满足条件,满足条件的情况下再进行断言
+        */
+        let str = 'bingbing193562'
+        let reg = /bingbing(?=193562)/g
+        console.log(str.match(reg))
+
+    
+    </script>
+</body>
+</html>

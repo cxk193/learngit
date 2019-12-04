@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box span{
+            display: inline-block;
+            width: 80px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+    <script>
+        
+        function color(){
+            var r = Math.floor(Math.random()*256)
+            var g = Math.floor(Math.random()*256)
+            var b = Math.floor(Math.random()*256)
+            var a = Math.random().toFixed(1)
+            // box.innerHTML += `<span style='background:rgba(${r},${g},${b},${a});'></span>`
+            box.innerHTML += `<span style='background:${randomColor()};'></span>`
+
+        }
+        color()
+        setInterval(color,100)
+
+        function randomColor(num){
+            return `rgba(${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${Math.random().toFixed(1)})`
+        }
+
+    </script>
+</body>
+</html>

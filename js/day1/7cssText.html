@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cssText</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            transition: all 0.8s ease-in;
+        }
+    </style>
+</head>
+<body>
+    <button>点击修改css样式</button>
+    <div id="box"></div>
+    
+    <script>
+
+        /*
+            cssText 属性
+            用于一次性修改多条样式属性
+        */
+
+        var box = document.getElementById("box")
+        var btn = document.getElementsByTagName('button')[0]
+
+        btn.onclick = function(){
+            box.style.cssText = 'width:500px;height:500px;;background-color:pink;'
+        }
+
+    </script>
+</body>
+</html>

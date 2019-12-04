@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            比较运算符 : > < >= <= == != === !==
+            算数运算符 : + - * / %(取模)
+
+            逻辑运算符 :
+            &&      与(遇true才通过,在判断的时候必须两个值都为真,就返回真)
+            ||      或(遇false才通过,在判断的时候,一个为真就返回真)
+            !       非(取反)
+        */
+        //0是六大假值其中的一个 遇false才通过,不通过返回左边的值,通过返回右边的值
+        var num = 0 || 50
+        var num1 = 50 || 0
+        
+        console.log(num,num1)
+
+        //遇true才通过,不通过返回左边的值,通过返回右边的值
+        var num2 = 0 && 50
+        var num3 = 50 && 0
+        console.log(num2,num3)
+    </script>
+</body>
+</html>

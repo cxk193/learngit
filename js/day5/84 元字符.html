@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+            /*
+                \w 匹配单词 数字 _
+                \W 匹配非 单词 数字 _
+
+                \d 匹配数字
+                \D 匹配非数字
+
+                \s 匹配空格
+                \S 匹配非空格
+
+                \n 转义->代表换行
+
+                \b 匹配单词边界
+                \B 匹配非单词边界
+            */
+        //匹配单词边界 即:字与空格间的位置,包括数字 字母 _ 空格
+        let str = '1,_,2,3'
+        let reg = /\b/g
+        let reg1 = /\B/g
+        console.log(reg.test(str))
+        console.log(reg1.test(str))
+    </script>
+</body>
+</html>

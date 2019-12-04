@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            position: relative;
+            width:150px;
+            height:250px;
+            border:2px solid deeppink;
+            margin:100px auto 0;
+        }
+        
+        #box > span{
+            position:absolute;
+            width:50px;
+            height:50px;
+            background-color: pink;
+            text-align: center;
+            line-height: 50px;
+            font-weight: bold;
+            font-size:18px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var box = document.getElementById("box")
+        var num=5
+        var middle = (5-1)/2    //middle = 2
+        var str = ''
+        /*
+            num从0开始,i值每次加1   0 1 2 3 4
+            当i到达中间值的时候 div的left值每次 -= 50 一直减到0 ,而div的top值是一直增加的趋势
+        */
+        for(var i=0;i<num;i++){
+            if(i<=middle){
+                str += '<span style="left:'+ i*50+'px;top:'+ i*50+'px;">'+(i+1)+'</span>'
+            }else{
+                str += '<span style="left:'+ 50*(num-i-1)+'px;top:'+i*50+'px;">'+ (i+1)+'</span>'
+            }
+        }
+            box.innerHTML = str
+        
+    </script>
+</body>
+</html>

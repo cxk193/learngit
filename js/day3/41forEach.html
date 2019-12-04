@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>forEach</title>
+    <style>
+    
+        .box{
+            width:100px;
+            height:100px;
+            background-color: purple;
+            margin-bottom:5px;
+        }
+
+    </style>
+</head>
+<body>
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+
+    <script>
+    
+        //var box = document.getElementsByClassName("box")
+        //注意:用获取类名的方法获取到的是一个 伪数组
+        //console.log( box instanceof Array)  false 判断box的构造器 是不是 数组
+
+        var arr = [1.2,2,0]
+        console.log(arr)    //__proto__: Array(0)
+
+        var box = document.querySelectorAll(".box")
+        console.log(box)    //__proto__: NodeList(5)
+
+        //注:forEach不能遍历伪数组  , 但是用    querySelectAll()获取到的元素却能遍历到
+        var flag = false
+        //给元素绑定绑定点击事件要用item来绑定  
+        box.forEach((item,index,arr)=>{
+
+            item.onclick = function(){
+                if(flag){
+                    flag = true
+                    item.style.background = "skyblue"
+                }else{
+                    item.style.background = "purple"
+                }
+                flag = !flag
+            }
+
+        })
+    
+    </script>
+</body>
+</html>

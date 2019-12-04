@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        var obj = {
+            name:'jj'
+        }
+
+        function fn(a,b,c){
+            console.log(a,b,c)
+            console.log(this)   //window
+        }
+
+        //fn函数里面this原本是指向window的,但是现在别修改指向为obj
+        
+        //call()和apply()的区别就是他们的传参数的方式不一样 call是像传实参那样直接传,而apply传实参是用一个数组的格式
+        
+        //call和apply会自动执行
+        fn.call(obj,1,2,3)
+        fn.apply(obj,[4,5,6])
+
+        //bind 绑定不执行 需要事件触发,或其他方式的触发
+
+        document.onclick = fn.bind(obj,9,8,7)
+
+        // 除了apply传实参是数组的格式,其他的都一样
+
+         //方法一 new关键字改变this的指向
+        // function fn(){
+        //     this.name = 'kube'
+        // }
+        // var a = new fn();   //使用new将 fn()复制一份到 对象a当中,修改this的指向
+        // console.log(a.name)
+
+        //方法二 call()方法
+        // var obj = {
+        //     a:123,
+        //     fn1:function(){
+        //          console.log(this.a)
+        //         // console.log(e+v)
+        //     }
+        // }
+        // var b = obj.fn1;
+        // b() //this指向window
+        // // b.call(obj,123,123) //若不用call(),则b()执行后指向的是window对象; 除了第一个参数可以传对象之外,还可以传入实参
+
+        //方法三   apply()
+        // var obj = {
+        //     a:10,
+        //     fn:function(x,y){
+        //         this.a
+        //         console.log(x+y)   
+        //     }
+        // }
+        // var b = obj.fn;
+        // // b()  this指向window
+        // b.apply(obj,[20,30])    //和call()不同的是apply()方法传入的参数必须是一个数组,  this指向调用的对象
+
+        //方法四  bind(),bind()可以随时调用,在调用的时候传参,而call()和apply()改变上下文this的指向后,就直接调用了
+        var obj = {
+            a:'小试牛刀',
+            fn:function(e,f,g){
+                console.log(this.a)
+                console.log(e,f,g)
+            }
+        }
+        var b = obj.fn;
+        var c = b.bind(obj,1)
+    </script>
+</body>
+</html>

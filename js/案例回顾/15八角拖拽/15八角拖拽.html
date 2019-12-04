@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" ondragstart='false'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>八角拖拽</title>
+
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+        #box{
+            position:relative;
+            top: 100px;
+            left:450px;
+            width: 100px;
+            height: 100px;
+            background:url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575358684812&di=eba4b5ef13c1e5c9316c492955d7cb6d&imgtype=0&src=http%3A%2F%2Fupload.mnw.cn%2F2018%2F0717%2F1531813755205.jpg) no-repeat center/cover;
+
+        }
+        #box div{
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            opacity: 0.5;
+        }
+        #lefttop{
+            left: -5px;
+            top: -5px;
+        }
+        #top{
+            left: 50%;
+            top: -5px;
+            margin-left: -5px;
+        }
+        #righttop{
+            right: -5px;
+            top: -5px;
+        } 
+        #left{
+            top: 50%;
+            left: -5px;
+            margin-top: -5px;
+        } 
+        #right{
+            top: 50%;
+            right: -5px;
+            margin-top: -5px;
+        }
+        #leftbottom{
+            left: -5px;
+            bottom: -5px;
+            
+        } 
+        #bottom{
+            left: 50%;
+            bottom: -5px;
+            margin-left: -5px;
+        } 
+        #rightbottom{
+            right: -5px;
+            bottom: -5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="lefttop"></div>
+        <div id="top"></div>
+        <div id="righttop"></div>
+        <div id="left"></div>
+        <div id="right"></div>
+        <div id="leftbottom"></div>
+        <div id="bottom"></div>
+        <div id="rightbottom"></div>
+    </div>
+    <script>
+        var box = document.querySelector('#box')
+        document.onmousedown = function(e){
+            var target = e.target
+            var downX = e.clientX
+            var downY = e.clientY
+            var Left = box.offsetLeft
+            var Top = box.offsetTop
+            var downW = box.clientWidth
+            var downH = box.clientHeight
+            e.stopPropagation()
+            document.onmousemove = function(e){
+                e.stopPropagation()
+                var X_ = e.clientX - downX
+                var Y_ = e.clientY - downY
+
+                switch(target.id){
+                    case 'box':
+                       box.style.left = Left + X_ +'px'
+                       box.style.top = Top + Y_+'px'
+                        break;
+                    case 'lefttop':
+                        X_ = Math.min(X_,downW-100)
+                        Y_ = Math.min(Y_,downH-100)
+                        box.style.width = downW - X_+"px"
+                        box.style.height = downH - Y_+"px"
+                        box.style.left = Left + X_+'px'
+                        box.style.top = Top + Y_+'px'
+                        break;
+                    case 'top':
+                        Y_ = Math.min(Y_,downH-100)
+                        box.style.top = Top + (Y_)+'px'
+                        box.style.height = downH -(Y_)+'px'
+                        break;
+                    case 'righttop':
+                        X_ = Math.max(X_,-(downW-100))
+                        Y_ = Math.min(Y_,downH-100)
+                        box.style.width = downW + X_+'px'
+                        box.style.height = downH - Y_+'px'
+                        box.style.top = downY + Y_+'px'
+                        break;
+                    case 'left':
+                        X_ = Math.min(X_,downW-100)
+                        box.style.width = downW - X_+'px'
+                        box.style.left = Left + X_+'px'
+                        break;
+                    case 'right':
+                        X_ = Math.max(X_,-(downW-100))
+                        box.style.width = downW + X_+'px'
+                        break;
+                    case 'leftbottom':
+                        X_ = Math.min(X_,downW-100)
+                        Y_ = Math.max(Y_,-(downH-100))
+                        box.style.width = downW - X_+'px'
+                        box.style.height = downH+Y_+'px'
+                        box.style.left = Left + X_+'px'
+                        box.style.right = Top + Y_+'px'
+                        break;
+                    case 'bottom':
+                        Y_ = Math.max(Y_,-(downW-100))
+                        box.style.height = downH + Y_+'px'
+                        break;
+                    case 'rightbottom':
+                        X_ = Math.max(X_,-(downW-100))
+                        Y_ = Math.max(Y_,-(downH-100))
+                        box.style.width = downW + X_+'px'
+                        box.style.height = downH + Y_+'px'
+                        break;
+                }
+            }
+            document.onmouseup = function(e){
+                e.stopPropagation()
+                document.onmousemove = null
+                document.onmouseup = null
+            }
+        }
+    </script>
+</body>
+</html>

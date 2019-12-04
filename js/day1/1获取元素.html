@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取元素的方式</title>
+</head>
+<body>
+    <ul id="list" class="list">
+        <li> 1 </li>
+        <li> 2 </li>
+        <li> 3 </li>
+        <li> 4 </li>
+        <li> 5 </li>
+    </ul>
+
+    <img name="pander" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=286311690,4225355782&fm=26&gp=0.jpg" alt="">
+    <img name="pander" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=286311690,4225355782&fm=26&gp=0.jpg" alt="">
+    <img name="pander" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=286311690,4225355782&fm=26&gp=0.jpg" alt="">
+    <script>
+        /*
+            document 文档
+            get      得到
+            Element  元素
+            By       通过什么样的方式
+            Id       id类名
+            className class类名
+            TagName  标签名
+            query    查询
+            Select   选择
+            All      全部
+
+            带 getElements 获取到的元素都是一个集合 
+        */
+        var oUl = document.getElementById('list')
+        //getElementByClassName 获取到的元素是一个伪数组 只获取单个元素时,在后面加上[0],表示获取到第一个元素
+        var list = document.getElementsByClassName("list")[0]
+        
+        //getElementsByTagName 获取到的元素也是一个伪元素
+        var oli = document.getElementsByTagName('li')
+
+        //用querySelect获取元素时，# . 必须要加上
+        //获取单个元素，用它获取集合时，只能拿到第一个
+        var ul = document.querySelector("#list")   
+
+        //querySelectAll 获取到的是一个数组，可以用forEach 遍历
+        var li = document.querySelectorAll("li")
+        
+        li.forEach((item,index,arr)=>{
+            console.log(item)
+        })
+
+        var pander = document.getElementsByName('pander')
+
+    </script>
+</body>
+</html>

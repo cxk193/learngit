@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        /*
+            贪婪匹配
+                {num,}
+                num+    从零开始
+                num*    从一开始
+            惰性匹配
+                num?
+        */
+        let str = '1935623498'
+        let reg = /\d{0,}/g
+        let reg1 = /\d+/g
+        let reg2 = /\d*/g
+        let reg3 = /\d{2,9}/
+        let reg4 = /\d{2,9}?/   //? 惰性模式,匹配区间次数最少
+        let reg5 = /\d+?/
+        let reg6 = /\d*?/
+
+        console.log(str.match(reg))
+        console.log(str.match(reg1))
+        console.log(str.match(reg2))
+        console.log(str.match(reg3))
+        console.log(str.match(reg4))
+        console.log(str.match(reg5))
+        console.log(str.match(reg6))
+
+    </script>
+</body>
+</html>

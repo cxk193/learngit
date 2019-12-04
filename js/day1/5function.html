@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>function</title>
+</head>
+<body>
+    <div id="div"></div>
+    <script>
+        
+        /*
+            函数的两种定义方式：
+            function jj(){} 有函数名称的称为函数声名
+
+            var jx = function(){}   用变量接收的无名函数称为函数表达式
+
+        */
+
+
+        //当函数中发生了运算时，必须要把计算的结果 return 给    function接收
+        function fn(){
+            return 3*5-4    //return 之后，这个函数会停止向下解析代码    
+            alert(123)  
+        }
+        fn()
+
+        //函数表达式
+        var fn1 = function(){
+            console.log("用一个变量名接收一个无名函数")
+        }
+        fn1()   //函数调用一次就会执行一次
+        fn1()
+        fn1()
+
+        /*
+            两者执行的区别
+        */
+        ctx()
+        function ctx(){
+            console.log('自执行，可以在任何地方调用')
+        }
+
+        // cxk()  cxk is not a function
+        /*
+            定义变量的时候，function会被提升到作用域的顶部
+            先定义后执行
+            
+            定义阶段 var cxk
+            赋值阶段 ckx = function(){}
+            执行阶段 cxk()  
+        */
+        var cxk = function(){
+            console.log('有函数提升，会被提升到作用域的顶部')
+        }
+        cxk()
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>requestAnimationFrame</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			
+			/*
+			 *	requestAnimationFrame()	请求动画帧
+			 * 	cancelAnimationFrame() 清除动画帧
+			 *  清除动画帧的时候需要将请求动画帧存储到一个对象当中,
+			 * 	然后将请求动画帧的对象放到cancelAnimationFrame()这个高阶函数当中
+			 *
+//			 */
+//			  var num = 0;
+//			  var run;
+////      fn()
+//      // fn()   1000ms/60 requestAnimationFrame()这个函数执行的速度为 1000/60
+//      function fn(){
+//          run = requestAnimationFrame( fn )  //高阶函数
+//          console.log( num++ )
+//      }
+//      
+//      fn()
+//      cancelAnimationFrame(run)
+        // function fn(){
+        //     fn()  //高阶函数
+        //     console.log( num++ )
+        // }
+        
+		/*
+		 * 兼容IE的写法:
+		 * 	由于requsetAnimationFrame()和cancelAnimationFrame()是window下面的
+		 *  方法
+		 * 	
+		 *  	在Ie浏览器中console.log(window.requestAnimationFrame)	
+		 *		打印的结果为undefined  
+		 * 
+		 * 		兼容思路:
+		 * 	由于console.log(window.requestAnimationFrame)在ie浏览器当中为undefined
+		 *而定时器却可以很好地兼容IE及其以下的浏览器,可以对window.requestAnimationFrame
+		 *赋值一个定时器的函数 
+		 * 
+		 * 由于requestAimationFrame和cancelAnimationFrame是挂载到window下面的方法
+		 *  可以写成:
+		 * 		window.requestAnimationFrame
+		 * 		window.cancelAnimationFrame
+		 */
+			
+			
+			
+			window.requestAnimationFrame = window.requestAnimationFrame || function(){
+				return setTimeout(fn,1000/60)	//给函数返回一个计时器
+			
+				//		var num=0
+				//		var animation;
+				//		function fn(){
+				//			console.log(num++)
+				//setTimeout执行一次,外面调用fn()函数,形成一个循环的过程
+				//			setTimeout(fn,1000/60)	
+				//		}
+				//		fn()
+				//      clearTimeout(animation)	清除定时器
+			}
+			/*
+			 * 	当用户为IE浏览器时window.cancelAnimationFrame为undefinde
+			 *	为了兼容IE,计时器就是一个替代请求动画帧的一个好选择,直接给window.cancelAnimationFrame
+			 *  赋值一个函数,到了IE浏览器当中执行的就是计时器这个函数
+			 * 
+			 */
+			window.cancelAnimationFrame = window.cancelAnimationFrame || clearTimeout;
+			
+			var num = 0
+			var animation;
+			function fn(){
+				console.log(num++)
+				//当fn()调用时,不断的对fn函数进行调用  并且是以 1000ms/60 的速度进行调用 
+				animation = requestAnimationFrame(fn)
+				//将请求动画帧保存到一个对象当中便于清除动画帧
+			}
+			fn()
+			document.onclick = function(){
+				cancelAnimationFrame(animation)
+			}
+			/*
+			 * console.log(window.requestAnimationFrame)
+			 * "function requestAnimationFrame() { [native code] }"
+			 */
+			
+
+		</script>
+	</body>
+</html>

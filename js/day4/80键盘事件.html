@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <input type="text" id="input">
+    <script>
+        /*
+            onkeydown   键盘按下
+            onkeyup     键盘抬起
+
+                浏览器默认给键盘事件绑定的函数中传入一个keyEvent对象
+            
+            e.key   按键名
+            e.keyCode   键盘码
+
+            注意键盘事件是 window下面的一个方法
+                调用时:
+                    window.onkeydown
+        */
+        var input = document.getElementById('input')
+        window.onkeydown = function(){
+            console.log('鼠标按下了')
+        }
+        window.onkeyup = function(){
+            console.log('鼠标抬起了')
+        }
+        window.onkeydown = function(e){
+            console.log(e.keyCode)
+        }
+        window.onkeyup = function(e){
+            console.log(e.keyCode)
+        }
+        window.onkeydown = function(e){
+            if(e.keyCode === 123){
+                e.preventDefault()
+            }else if(e.keyCode === 116){
+                e.preventDefault()
+            }else{
+
+            }
+        }
+        window.onkeyup = function(e){
+            if(e.keyCode === 116){
+                e.preventDefault();
+            }else if(e.keyCode === 116){
+                e.preventDefault();
+            }else{
+
+            }
+        }   
+        document.oncontextmenu = function(e){
+            e = e || window.event
+            e.preventDefault();
+        }
+        //按下组合键的写法
+        // window.onkeydown = function(e){
+        // //    console.log(e)
+        //    if(e.ctrlKey && e.keyCode === 65){
+        //         alert('按下的键是:ctrl+'+e.key )
+        //    }
+        // }
+    </script>
+</body>
+</html>

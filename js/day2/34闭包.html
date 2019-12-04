@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        /*
+            闭包的本质就是函数嵌套函数,里面的函数引用外面函数的变量
+
+            产生闭包的条件:
+                函数嵌套
+                里面函数引用外面函数的变量
+
+            闭包的优点:
+                1.变量长期驻扎在函数中(在关闭程序时候释放)
+                2.避免了全局变量的污染
+            
+            闭包的缺点:
+                1.增大内存的使用
+                2.使用不当会导致内存泄漏
+                3.会改变父函数变量的值
+
+        */
+         //子函数引用父函数的值的时候,会把这个值保存起来
+         function fn(){
+            var a = 1
+            return function fn1(){
+                a++;    //当前函数没有的变量,会向上以及函数去找这个变量
+                console.log(a)
+            }
+        }
+        var b = fn()
+        b()
+        b()
+        b()
+        b()
+        b()
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            多态:
+                同一个对象里面有不同方法,对于不同的对象调用不同的方法
+        */
+          var parson = {
+               sex : function(sex){
+                   if(sex === '男'){
+                       console.log('上班')
+                   }else if(sex === '女'){
+                        console.log('洗衣做饭带孩子')
+                   }else{
+                       console.log('不男不女的人妖')
+                   }
+               },
+               age:function(age){
+                   if(age >= 20){
+                       console.log('你该自食其力了')
+                   }else if(age>=25){
+                       console.log('你该成家立业了')
+                   }else{
+                       console.log('要么是未成年人,要么是中年或老年人')
+                   }
+               }
+            }
+            parson.sex('男')
+            parson.age(21) 
+    </script>
+</body>
+</html>

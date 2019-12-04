@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>序列化和反序列化</title>
+</head>
+<body>
+    <script>
+        /*
+            对象序列化之后属性名会被加上引号
+
+            反序列化就是把序列化之后加上的引号去掉
+        
+        */
+        var obj = {
+            name:'bingbing',
+            age:18,
+            gender:'男'
+        }
+        
+        var jison = JSON.stringify(obj)
+        console.log(jison)
+        console.log(JSON.parse(jison))
+
+    
+    </script>
+</body>
+</html>

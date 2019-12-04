@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+        
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+        <script>
+            var box = document.getElementById('box')
+
+            //请求动画帧,兼容IE低版本
+            window.requestAnimationFrame = window.requestAnimationFrame || function(){
+                return setTimeout(fu,1000/60)
+            }
+            window.cancelAnimationFrame = window.cancelAnimationFrame || clearTimeout;       
+         
+            //获取行内样式,兼容IE低版本
+            function getStyle(ele){
+                return ele.currentStyle || getComputedStyle(ele)
+            }
+            animation(box,{
+                width:'400px',
+                height:'400px'
+            },2000,function(){
+                this.style.borderRadius = '50%'
+                // alert('已经执行完了')
+                
+                // console.log(this) 此时this指向window,如果要在动画执行完后对某个元素执行某个样式或其他的操作,需要将this的指向进行更改 call() apply() bind()这三个方法可以修改this的指向,其中call he appley会立即执行,所以在动画执行完之后立即执行,而bind却不会
+            })
+
+            //ele:对象  attr:属性 josn:对象 time:时间 callBack:回调函数
+            function animation(ele,json,time,callBack){
+
+                    var startAttr ={}
+                    var changeAttr ={}
+                //for(var key in object) 遍历对象
+                for(var key in json){
+                    //取到对应的json对象的属性
+                    startAttr[key] = parseFloat(getStyle(ele)[key])
+                    //获取到差值            目标值          -         初始值
+                    changeAttr[key] = parseFloat(json[key])-parseFloat(getStyle(ele)[key]) 
+                    // console.log(changeAttr[key])
+                }
+                
+                var startTime = new Date()
+                function fn(){
+                    changeTime = new Date()-startTime
+                    var rate = changeTime/time
+                    // console.log(rate)
+                    if(rate>=1){
+                        //时间差值的比例大于一时,强制等于一
+                        rate = 1
+                        for(var key in changeAttr){
+                            //  最终值 = 时间差值的比例 * 属性的差值 + 初始值 
+                            var value = rate * changeAttr[key] + startAttr[key]
+                            //当rate>=1,if判断为真,,rate强制等于一后,rate * 属性的差值计算结果强制等于目标值 
+                            ele.style[key] = value + 'px'                 
+                        }   
+                        //当上面的代码执行完调用一个函数(回调函数) ,判断参数中有没有传入callBack这个回调函数进来,没有传入进来的话,callBack则为undefinde这一个六大假值当中的其中的一个,然后进行判断,当callBall为undefined时为假,&&运算符:为真通过返回真,为假则断开返回假
+                        callBack && setTimeout(callBack.bind(ele),3000)
+                    }else{
+                        requestAnimationFrame(fn)
+
+                        //遍历到changeAttr对象里面的属性差值
+                        for(var key in changeAttr){
+                            //  最终值 = 时间差值的比例 * 熟悉的差值 + 初始值 
+                            var value = rate * changeAttr[key] + startAttr[key]
+                            //最后的值有误差,因为rate时间差值的比例可能最后小于或者大于一
+                            // console.log(rate)
+                            ele.style[key] = value + 'px'                 
+                        }   
+                        // console.log(value)
+                    }
+                }
+                fn()
+            }
+        </script>
+
+</body>
+</html>

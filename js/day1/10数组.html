@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <script>
+
+        /*
+            [] 数组
+            length 长度(数组中有多少个值)
+            
+            数组取值靠的是下标
+            例如:arr[0] 数组的第一项是从零开始的
+
+            二位数组的取值
+            arr[0][0]
+        */
+
+        var arr = [1,2,3,4,5,6]
+        var arr1 = [1,'hellow',[function(){console.log(123)},false,1,false]]
+
+        //拿到二维数组中的函数，并执行
+        arr1[2][0]()
+
+        //修改数组中的第一项值
+        arr[0] = 18
+        console.log(arr)
+
+        //修改数的length属性
+        arr.length = 3
+        console.log(arr.length)
+
+        //数组保存值的个数为修改的length长度
+        console.log(arr)
+    </script>
+</body>
+</html>

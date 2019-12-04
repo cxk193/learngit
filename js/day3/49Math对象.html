@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Math对象</title>
+</head>
+<body>
+    <script>
+    
+        /*
+            Math对象
+        */
+
+        //Math.PI 圆周率    3.141592653589793 约等于
+        console.log(Math.PI)
+
+        //Math.abs()    取绝对值 
+        console.log(Math.abs(-15))  //15
+
+        //Math.floor()  向下取整
+        console.log(Math.floor(11.123456))  //11
+
+        //Math.ceil()   向上取整
+        console.log(Math.ceil(11.123))  //12
+
+        // Math.round()  四舍五入
+        console.log(Math.round(11.43))  //11
+
+        //Math.max()    取最大值
+        console.log(Math.max(87,65,43,21))  //87
+
+        //Math.min()    取最小值
+        console.log(Math.min(87,65,43,21))  //21
+
+        //Math.pow(底数,指数)  幂函数
+        console.log(Math.pow(2,3))  //8
+
+        //toFxied(num)  保留小数的位数
+        console.log(Math.PI.toFixed(2)) //3.14
+
+        //Math.random() 随机数  随机反回一个 [0,1) 的小数
+        console.log(Math.random().toFixed(1))
+
+        //用随机数返回一个 区间的随机数 [10,41) Math.floor(Math.random()*(max-min)+min)
+        console.log(Math.floor(Math.random()*(41-10)+10))
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #demo{
+            width:640px;
+            margin:100px auto;
+        }
+        .btn{
+            width:100px;
+            height:50px;
+            background-color: #ccc;
+            float:left;
+            text-align:center;
+            line-height:50px;
+            cursor: pointer;
+            user-select: none;/* 内容无法选中 */
+        }
+        .on{
+            background-color: pink;
+        }
+        .pic >img {
+            position: absolute;
+            display: none;
+        }
+        .pic .on{
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    <div id='demo'>
+        <div id='btn' style="overflow:hidden;">
+            <div class='btn on'>图片1</div>
+            <div class='btn'>图片2</div>
+        </div>
+        <div class='pic'>
+            <img src="../images/1.png" class='on' alt="">
+            <img src="../images/2.png" alt="">
+        </div>
+    </div>
+    <script>
+        var btn = document.getElementsByClassName('btn')
+        var pic = document.querySelectorAll('.pic img')
+        btn[0].onclick = function(){
+            pic[0].classList.remove('on')
+            pic[1].classList.add('on');
+        }
+        btn[1].onclick = function(){
+            pic[0].classList.add('on');
+            pic[1].classList.remove('on');
+        }
+    </script>
+</body>
+</html>

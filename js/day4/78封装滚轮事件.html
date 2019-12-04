@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+    
+       mousewheel(box,function(d){
+            var w = box.clientWidth
+            var h = box.clientHeight
+
+
+
+            if(d>0){
+                w+=5
+                h+=5
+                box.style.width = w +'px'
+                box.style.height = h +'px'
+            }else{
+                w-=5
+                h-=5
+                box.style.width = w +'px'
+                box.style.height = h +'px'
+            }
+
+           return false
+       })
+
+       function mousewheel(dom,cb){
+
+            function scroll(e){
+                var e = e || window.event
+
+                if(cb.call(this,(e.wheelDelta/120 || -e.detial/3)) === false){
+                    // e.preventDefault()
+                    //兼容IE阻止默认事件
+
+                    // if(e.prenventDefault){
+                    //    
+                    // }else{
+                    //     e.returnValue = false
+                    // }
+                }
+            }
+
+            //判断 谷歌 和 火狐 滚轮事件
+            if(dom.onmousewheel === null){
+                var type = 'mousewheel'
+            }else{
+                var type = 'DOMMouseScrool'
+            }
+            //判断 谷歌 和 IE 事件监听
+            if(document.addEventListener){
+                dom.addEventListener(type,scroll,false)
+            }else{
+                dom.attachEvent(+"on"+type,scroll,false)
+            }
+       }
+
+    
+    </script>
+</body>
+</html>

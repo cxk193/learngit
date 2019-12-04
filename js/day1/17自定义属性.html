@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div"></div>
+    <script>
+        /*
+            自定义属性 (人为添加上去的)
+            setAttribute("key","value")
+            getAttribute("key")
+        */
+        var box = document.getElementById('div')
+        box.setAttribute("weight","180kg")
+        
+        //通过属性名拿到属性值
+        console.log(box.getAttribute("weight"))
+
+        //removeArrtibute() 删除属性名
+        box.removeAttribute("weight")
+
+        //hasAttribute()    判断是否存在指定的属性名
+        
+        console.log(box.hasAttribute("weight"))
+    </script>
+</body>
+</html>

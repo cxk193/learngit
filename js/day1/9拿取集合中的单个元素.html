@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+        .cname{
+            width: 50px;
+            height: 50px;
+            background-color: skyblue;
+            margin-bottom: 5px;
+        }
+    </style>
+<body>
+    <div id="box"></div>
+    <div class="cname"></div>
+    <div class="cname"></div>
+    <div class="cname"></div>
+    <div class="cname"></div>
+    <div class="cname"></div>
+
+    <script>
+        var box = document.getElementById('box')
+        var cname = document.getElementsByClassName('cname')
+        /*
+            cname 保存的相当于是一个伪数组，这个伪数组中的每一项下标对应着一个js元素对象，也就是每一个li
+        */
+        cname[0].onclick = function(){
+            alert(0)
+        }
+        cname[1].onclick = function(){
+            alert(1)
+        }
+        cname[2].onclick = function(){
+            alert(2)
+        }
+        cname[3].onclick = function(){
+            alert(3)
+        }
+        cname[4].onclick = function(){
+            alert(4)
+        }
+    </script>
+</body>
+</html>

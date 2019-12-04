@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>单角拖拽</title>
+    <style>
+        
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+        #btn{
+            position: absolute;
+            right: -5px;
+            bottom: -5px;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+        }
+        .active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="btn"></div>
+    </div>
+    <script>
+        
+        var box = document.querySelector('#box')
+        var btn = document.querySelector('#btn')
+
+        function boxDown(e){
+            var downX = e.clientX
+            var downY = e.clientY
+            e.stopPropagation()
+            var target = e.target
+            var that = this
+            if(target.id === 'btn'){
+                var boxW = this.parentNode.clientWidth
+                var boxH = this.parentNode.clientHeight
+            }else{
+                var boxLeft = this.offsetLeft
+                var boxTop = this.offsetTop
+            }
+            function domMove(e){
+                var X_ =  e.clientX - downX
+                var Y_ = e.clientY - downY
+                if(  target.id === 'btn'  ){
+                    that.parentNode.style.width = boxW + X_ + "px";
+                    that.parentNode.style.height = boxH + Y_ + "px";
+                }else{
+                    that.style.top = boxTop + Y_ +'px';
+                    that.style.left = boxLeft + X_ + 'px';
+                }
+                e.stopPropagation()
+            }
+            function domUp(e){
+                e.stopPropagation()
+                document.removeEventListener( 'mousemove',domMove )
+                document.removeEventListener( 'mouseup',domUp )
+            }
+            document.addEventListener('mousemove',domMove)
+            document.addEventListener('mouseup',domUp)
+        }
+        box.addEventListener('mousedown',boxDown)
+        btn.addEventListener('mousedown',boxDown)
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取元素的宽高</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            border: 5px solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var box = document.getElementById('box')
+        /*
+            clientWidth 不包含边框
+            clientHeight
+
+            offsetWidth 包含边框
+            offsetHeight
+        */
+    console.log(box.clientWidth,box.clientHeight)
+
+    console.log(box.offsetWidth,box.offsetHeight)
+        
+    
+    </script>
+</body>
+</html>

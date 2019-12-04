@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+        body{
+            position: relative;
+            padding: 0;
+            margin: 0;
+            width: 100vh;
+            height: 100vh;
+            background: linear-gradient(to top, skyblue, pink);
+        }
+        .circle{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: aqua;
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+        
+        createBall(10)
+        function createBall(num){
+            for(let i=0;i<num;i++){
+                let div = document.createElement('div')
+                div.classList.add('circle')
+
+                div.speedX = parseInt(Math.random()*10+1)
+                div.speedY = parseInt(Math.random()*10+1)
+
+                document.body.appendChild(div)
+            }
+        
+
+            let circle = document.querySelectorAll('.circle')
+
+            let maxX = document.documentElement.clientWidth - circle[0].offsetWidth
+            let maxY = document.documentElement.clientHeight - circle[0].offsetHeight
+
+            window.onresize = function(){
+                maxX = document.documentElement.clientWidth - circle[0].offsetWidth
+                maxY = document.documentElement.clientHeight - circle[0].offsetHeight
+            }
+
+            action()
+            function action(){
+                for(let i=0;i<num;i++){
+                    
+                    let ball = circle[i]
+                    
+                    let startLeft = ball.offsetLeft
+                    let startTop = ball.offsetTop
+
+                    let moveLeft = startLeft + ball.speedX
+                    let moveTop = startTop + ball.speedY
+
+                    console.log(moveTop)
+
+                    if(moveLeft<=0 || moveLeft>=maxX){
+
+                        ball.speedX = -ball.speedX
+                        ball.style.backgroundColor = randomColor()
+                        if(moveLeft<0){
+                            moveLeft = 0
+                        }
+                        if(moveLeft>maxX){
+                            moveLeft = maxX
+                        }
+                    }
+                    if(moveTop<=0 || moveTop>= maxY){
+                        ball.speedY = -ball.speedY
+                        ball.style.backgroundColor = randomColor()
+                        if(moveTop<0){
+                            moveTop = 0
+                        }
+                        if(moveTop>maxY){
+                            moveTop = maxY
+                        }
+                    }
+                    ball.style.left = moveLeft + "px"
+                    ball.style.top = moveTop + "px"
+                }
+                requestAnimationFrame(action)
+            }
+        }
+
+        function randomColor(){
+            return `rgba(${parseInt(Math.random()*256)},${parseInt(Math.random()*256)},${parseInt(Math.random()*256)},${Math.random().toFixed(1)})`
+        }
+    </script>
+</body>
+</html>

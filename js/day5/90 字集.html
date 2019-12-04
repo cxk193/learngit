@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            字集
+                {} 量词
+                [] 区间
+        */
+
+        //量词 匹配出现多少次
+        let str = '好好学习,天天向上'
+        let reg = /好{2}/
+        console.log(reg.test(str))
+        //区间 匹配区间中的任意一个
+        let str1 = 'abdADCFGscb'
+        let reg1 = /[a-z,A-Z]/
+        console.log(reg1.test(str1))
+    </script>
+</body>
+</html>

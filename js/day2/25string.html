@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            调用window下面的 String() 将数据进行强置类型转换为 字符串
+
+        */
+        var str = String(123)
+        var str1 = String(true)
+        var str2 = String(false)
+        var str3 = String(undefined)
+        var str4 = String(null)
+        var str5 = String([])
+        var str6 = String({})
+        //"123" "true" "false" "undefined" "null"  [object Object]
+        console.log( str,str1,str2,str3,str4,str5,str6)
+
+    </script>
+</body>
+</html>

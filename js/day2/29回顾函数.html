@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function fn(a,b,c){ //定义函数的时候,用形参接收实参传如果来的值
+            // console.log(a,b,c)  //形参和实参一一对应
+
+            //不定参之间发生了运算,必须要return出去,在调用这个函数的时候得到这个值,如果不return 出去就报undefined
+            return a+b+c
+        }
+        fn(1,2,3)   //调用函数的时候向函数中传入如实参
+        fn(6,5,4)   //每次调用都可以传入不同的参数
+
+        //函数表达式
+        - function (){console.log('a')} ();
+       + function (){console.log('b')} ();
+       ! function (){console.log('c')} ();
+       ~ function (){console.log('d')} ();
+       var fn1 = function(){}
+       fn1();
+
+       (function(){
+        console.log("自执行函数")
+       }())
+
+    </script>
+</body>
+</html>

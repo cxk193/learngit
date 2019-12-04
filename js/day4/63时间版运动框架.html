@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    
+    <script>
+        var box = document.getElementById('box')
+        window.requestAnimationFrame = window.requestAnimationFrame || function(){
+            return setTimeout(fn,1000/60)
+        }
+        window.cancelAnimationFrame = cancelAnimationFrame || clearTimeout;
+
+        function getStyle(ele){
+            return (ele.currentStyle || getComputedStyle(ele))
+        }
+        
+        animate(box,'width',500,2000)
+        function animate(ele,attr,value,time){
+            var startvalue = parseFloat(getStyle(ele)[attr])
+
+            var startTime= new Date()
+
+            var changeAttr = parseFloat(value)-startvalue
+
+            fn()
+            function fn(){
+                /*
+                    上一次调用函数和下一次调用函数的时间差/总的时间 = 时间差的比值
+                    初始值-目标值 = 增长的值
+                    时间差的比值*增长的值+初始值 = 目标值
+                */
+                var changeTime = new Date() - startTime
+                var rate = changeTime/time
+                var req
+
+                if(rate>=1){
+                    rate=1
+                    cancelAnimationFrame(req)
+                }else{
+                    req = requestAnimationFrame(fn)
+                }
+                console.log(rate)
+                var val = rate*changeAttr + startvalue
+                ele.style[attr] = val + 'px'
+            }
+
+            
+           
+        }
+    </script>
+</body>
+</html>

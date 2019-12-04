@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    
+ <script>
+        /*
+            innerHTML 能解析标签
+            innerText 不能解析标签
+        */
+        document.getElementById('box').innerText ='今天天气好晴朗'
+        document.getElementById('box').innerHTML = '<a href="https://www.huya.com">处处好风光</a>'
+    </script>
+</body>
+</html>

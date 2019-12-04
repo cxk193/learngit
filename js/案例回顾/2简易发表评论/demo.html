@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #wrap{
+            width: 500px;
+            height: 40px;
+            background-color:#f0f;
+            margin:50px auto 0;
+            padding:10px;
+        }
+        .title img{
+            display:none;
+            position: absolute;
+            width:40px;
+            height:40px;
+            border-radius:50%;
+            cursor: pointer;
+        }
+        .title img.active{
+            display:block;
+        }
+        .content{
+            display:none;
+            float:left;
+            width:300px;
+            margin-left:50px;
+        }
+        .on{
+            display: block;
+        }
+        .content > input{
+            width:210px;
+            height:32px;
+        }
+        .content .btn{
+            float:right;
+            width:60px;
+            height:36px;
+        }
+        .add{
+            float:right;
+            width:70px;
+            height:35px;
+            font-size:30px;
+        }
+        .list{
+            width: 520px;
+            border:2px solid #f0f;
+            margin:50px auto 0;
+        }
+        .list li{
+            list-style:none;
+            height:50px;
+            border:1px dashed #ccc;
+            padding-bottom:5px;
+        }
+        .list li img{
+            float: left;
+            width:50px;
+            height:50px;
+            border-radius:50%;
+        }
+        .list p {
+            float:left;
+            line-height:50px;
+            text-indent:20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="title">
+            <img class="active" src="../images/01.jpg" alt="">
+            <img src="../images/02.jpg" alt="">
+        </div>
+        <div class="content">
+            <input class="txt" type="text">
+            <button class="btn">发表</button>
+        </div>
+        <button class="add">+</button>
+    </div>
+    <ul class="list">
+    </ul>
+    <script>
+        var pic = document.querySelectorAll('.title img'),
+            cont = document.querySelector('.content'),
+            txt = document.querySelector('.txt'),
+            btn = document.querySelector('.btn'),
+            add = document.querySelector('.add'),
+            list = document.querySelector('.list')
+        var mark = false
+        var picSrc = '../images/01.jpg'
+        pic[0].onclick = function(){
+            pic[0].classList.remove('active')
+            pic[1].classList.add('active')
+            picSrc = '../images/02.jpg'
+        }
+        pic[1].onclick = function(){
+            pic[0].classList.add('active')
+            pic[1].classList.remove('active')
+            picSrc = '../images/01.jpg'
+        }
+        add.onclick = function(){
+           if(mark){
+                cont.classList.remove('on')
+           }else{
+                cont.classList.add('on')
+           }
+           mark = !mark
+        }
+        //input框的值保存在value里面
+        btn.onclick = function(){
+            var str = txt.value
+            if(str === ''){
+                alert("阿珍,可别乱来啊!")
+            }else{
+                list.innerHTML += '<li><img src="'+picSrc+'" alt=""><p>'+str+'</p></li>'
+                txt.value = ''
+            }
+        }
+    </script>
+</body>
+</html>

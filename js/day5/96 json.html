@@ -1,0 +1,34 @@
+!<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var curzy = {
+            name : 'Coco',
+            age :  '18',
+            favoter : 'active',
+            tall  : '118cm',
+            money : 100,
+            fn1 : function(){ 
+                console.log(this)
+                this.money--
+            }
+        }
+        // console.log(curzy.age)
+        
+        //对象增加属性
+        curzy.friend='jack'
+        delete curzy.age
+        curzy.fn1() //调用curzy下面的方法fn1
+        curzy.fn1()
+        curzy.fn1()
+        console.log(curzy.money)
+        
+    </script>
+</body>
+</html>

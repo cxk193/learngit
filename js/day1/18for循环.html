@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+    <script>
+        /*
+            1：定义阶段   var i = 1;
+            2: 判断阶段   i<=100
+            3：递增阶段   i++
+            4. 逻辑代码阶段   console.log( i )
+        */
+        //当()中的判断条件为假时,for循环停止
+        for(var i=1;i<100;i++){
+            // console.log(parseInt(Math.random()*100))
+        }
+        var btn = document.querySelectorAll('button')
+
+        // var index = 0
+        // //for循环的应用 给按钮绑定点击事件
+        // for(var i=0;i<btn.length;i++){
+            
+        //     //自定义属性保存每一次循环i的值
+        //     btn[i].index = i
+        //     btn[i].onclick = function(){
+        //         console.log(i)  //for循环一瞬间执行完,i每次自增,i的值等于btn.length
+        //         btn[this.index].style.backgroundColor = 'skyblue'
+        //     }
+        // }
+        
+        //let会形成一个块级作用域,将每一次循环的i值开辟出一个单独的块级作用域
+        for(let i=0;i<btn.length;i++){
+            btn[i].onclick = function(){
+                this.style.backgroundColor = 'pink'
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        function Person(name){
+            this.name = name
+        }
+
+
+        //构造函数的原型接收另一个构造函数的实例对象,从而继承该构造早函数的constructor属性
+        Preson1.prototype = person1
+        function Person1(name){
+            this.name = name
+        }
+
+        let person1 = new Person('123')
+
+    </script>
+</body>
+</html>

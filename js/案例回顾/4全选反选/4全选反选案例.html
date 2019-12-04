@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            width: 400px;
+            margin: 50px auto 0;
+            border:2px dashed #ccc;
+            user-select: none;
+        }
+        ul>li{
+            padding: 20px;
+            border-bottom: 1px dotted black;
+        }
+        ul>li:last-child{
+            border-bottom:none;
+        }
+        ul li span{
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin:2px 15px 0 20px;
+            background-image: url(../images/ck.png);
+        }
+        ul li span.active{
+            background-image: url(../images/cked.jpg);
+        }
+        .box{
+            text-align: center;
+        }
+        .box>button{
+            margin:0 15px;
+        }
+        button.active{
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul>
+            <li><span></span>option1</li>
+            <li><span></span>option2</li>
+            <li><span></span>option3</li>
+            <li><span></span>option4</li>
+            <li><span></span>option5</li>
+            <li><span></span>option6</li>
+            <li><span></span>option7</li>
+        </ul>
+        <div class="box">
+            <button>全选</button>
+            <button>全不选</button>
+            <button>反选</button>
+        </div>
+    </div>
+    <script>
+        var span = document.querySelectorAll("li>span")
+        var btn = document.querySelectorAll(".box>button")
+        var num = 0
+        //选中单个
+        for(let i = 0;i<span.length;i++){
+            span[i].flag = false
+            span[i].onclick = function(){
+                if(this.flag){
+                    span[i].classList.remove('active')
+                    num--;
+                }else{
+                    span[i].classList.add('active')
+                    num++;
+                }
+                this.flag = !this.flag
+
+                if(num===span.length){
+                    btn[0].classList.add('active')
+                    btn[1].classList.remove('active')
+                }else if(num===0){
+                    btn[1].classList.add('active')
+                    btn[0].classList.remove('active')
+                }else{
+                    btn[1].classList.remove('active')
+                    btn[0].classList.remove('active')
+                }
+            }
+        }
+        //全选
+        btn[0].onclick = function(){
+            num = span.length
+            btn[0].classList.add('active')
+            btn[1].classList.remove('active')
+            for(var i=0;i<span.length;i++){
+                span[i].classList.add('active')
+            }
+        }
+        //全不选
+        btn[1].onclick = function(){
+            num = 0
+            btn[1].classList.add('active')
+            btn[0].classList.remove('active')
+            for(var i=0;i<span.length;i++){
+                span[i].classList.remove('active')
+            }
+        }
+        //反选  判断自定义属性来进行添加删除类名
+        btn[2].onclick = function(){
+            var num = 0
+            for(var i=0;i<span.length;i++){
+                if(span[i].flag){
+                    span[i].classList.remove('active')
+                    num--;
+                }else{
+                    span[i].classList.add('active')
+                    num++;
+                }
+                span[i].flag = !span[i].flag
+
+                switch(num){
+                    case span.length:
+                        btn[0].classList.add('active')
+                        btn[1].classList.remove('active')
+                    break;
+                    case 0:
+                        btn[1].classList.add('active')
+                        btn[0].classList.remove('active')
+                    break;
+                    default :
+                        btn[0].className = ''
+                        btn[1].className = ''
+                    break;
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>

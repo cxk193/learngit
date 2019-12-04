@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        /*
+            只要是事件对象,浏览器会默认传入一个event对象
+
+            这个event其中有连个属性是获取鼠标在网页中的横纵坐标
+            //获取鼠标在网页中可视区的坐标
+            e.clientX e.clientY
+
+            //获取不可视区的坐标
+            e.pageX  e.pageY
+        */
+        document.onclick = function(e){
+            console.log(e.clientX,e.clientY)
+
+            console.log(e.pageX,e.pageY)
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        
+        //正数/可以点小数点，
+        let str = '45.32'
+        let reg = /^\d+\.\d+$/g
+        console.log(str.match(reg))
+
+        //正整数
+        let str1 = '50'
+        let reg1 = /^\d+/g
+        console.log(str1.match(reg1))
+
+        //负数
+        let str2 = '-50'
+        let reg2 = /^\-\d+/g
+        console.log(str2.match(reg2))
+
+        // 手机号码
+        let phone = '19995840675'
+        let reg3 = /^1[3-9]\d{9}$/g
+        console.log(phone.match(reg3))
+
+    </script>
+</body>
+</html>

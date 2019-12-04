@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        
+        function fn(){
+            console.log(this) //this指向window
+        }
+        //函数是由顶层对象调用的
+        window.fn()
+
+        var div = document.getElementById('box')
+         
+         div.onclick = function(){
+             //当函数绑定了一个事件对象
+             console.log(this)  //this指向事件对象
+         }
+         
+         //this永远指向调用他的那个对象
+         var obj = {
+             name:'冰冰',
+             age:18,
+             fn:function(){
+                 console.log(this)
+             },
+             arr:[1.557,1,5,7,0]
+         }
+         obj.fn()
+
+    </script>
+</body>
+</html>

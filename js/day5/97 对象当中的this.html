@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        var box = document.getElementById('box')
+
+        box.onclick = function(){
+            //对象绑定一个函数,this☞事件对象
+            console.log(this)
+        }
+
+        //有名函数中this指向调用他的对象,函数是在window下面调用的
+        function fn1(){
+            console.log(this)   //this指向window
+        }
+        window.fn1()   // fn1() === window.fn1()
+
+        var object = {
+            name:'coky',
+            fn1:function(){
+                console.log(this)
+                console.log(this.name)  //this指向object,this.name就相当于object.name
+            }
+        }
+        //fn1是object对象下面的方法,fn1是被object调用的,所以this指向object这个对象
+        object.fn1()  
+    </script>
+</body>
+</html>

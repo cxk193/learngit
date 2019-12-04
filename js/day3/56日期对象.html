@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //new Date()    获取本计算机的时间 (世界时间)
+        var date  = new Date()
+        console.log(typeof date) //object 是对象的话下面一定有很多方法
+    
+        //年 year
+        var year = date.getFullYear();
+
+        //月 month
+        var mounth = date.getMonth()+1;//月份是从 0~11这个区间,最后还要加一
+
+        //周 week
+        var week = date.getDay();
+
+        //天 day
+        var day = date.getDate();
+
+        //时 hour
+        var hour = date.getHours();
+
+        //分 minutes
+        var minites = date.getMinutes();
+
+        //秒 second
+        var second = date.getSeconds();
+
+        //毫秒 
+        var ms = date.getMilliseconds();
+
+        //时间戳 gettime() 从1970年到现在过了多少毫秒
+        var before = date.getTime()
+
+        //返回距离1970.1.1 00:00:00 过了多少毫秒;
+        var now = Date.now()
+
+        //一次性输出年月日时分秒 date.toLocalSttring()
+        console.log(date.toLocaleString())
+        
+        //一次性输出年月日 date.toLocalDateString()
+        console.log(date.toLocaleDateString())
+
+        //一次性输出时分秒
+        console.log(date.toLocaleTimeString())
+
+        //Date.UTC() 返回指定时间到 1970年 1月1日 00:00:00的毫秒值
+        console.log(Date.UTC(2001,0,1)) // 月份从 0~11
+
+        /*
+			 *getTimezoneOffset() 返回跟世界时之间相差多少分钟
+			 * 方法可以返回格林威治和本地相差多少分钟
+			 * 
+			 * 世界时(在本地时加上八小时) - 本地的时间	(当前时间)
+			 * 东八区  -8个钟头
+			 * 用法:根据电脑的时间算出世界各地的时间
+			 */	
+			console.log(date.getTimezoneOffset())
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+        #box{
+            width:500px;
+            height: 200px;
+            margin:50px auto;
+            padding:10px;
+            border:2px solid pink;
+        }
+        span{
+            color:#f60;
+            font-size:18px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+        <div id="box">
+            <input type="text" placeholder="匹配项">
+            <input type="text" placeholder="替换项">
+            <button>查找</button>
+            <button>替换</button>
+            <p> 凯迪，出生于吉林长春，毕业于重庆大学美视电影学院表演系，中国内地女演员。
+                2008年凯迪参演家庭轻喜剧《把日子过好》；2010年参演法院题材剧《防线》；2011年出演悬疑电影《密室之不可靠岸》；2014年参演爱情喜剧电影《撒娇女人最好命》；2016年参演剧情悬疑电影《记忆大师》 [1]  ；2017年出演悬疑推理剧《白夜追凶》，同年参演爱情奇幻剧《结爱·千岁大人的初恋》。
+            </p>
+            </div>
+        <script>
+
+            /*
+                思路总结:
+                    将原来的字符串复制一份,用于查找
+                    将查找后的字符串复制一份,用于替换
+                    将被替换的字符放到split()里面
+                    替换的值放到join()里面
+                    替换后的字符串赋值给原串
+            */
+
+            var pText = document.getElementsByTagName('p')[0],
+                inps = document.getElementsByTagName('input'),
+                btns = document.getElementsByTagName('button')
+                pinner = pText.innerHTML
+            //find
+            btns[0].onclick = function(){
+                //将要查找的值切割成一个数组
+                val = inps[0].value
+                if(val){
+                   pText.innerHTML = pinner.split(val).join("<span>"+val+"</span>")
+                }
+            }
+            //replice
+            btns[1].onclick = function(){
+                var va = inps[0].value
+                var val = inps[1].value
+                var str
+                //当两个都不为空字符串执行代码
+                if(va && val){
+                    str = pinner.split(va).join(`<span>${va}</span>`)
+                    pText.innerHTML = str.split(va).join(val)
+                }
+                inps[0]= ''
+                inps[1]= ''
+            }
+        </script>
+</body>
+</html>

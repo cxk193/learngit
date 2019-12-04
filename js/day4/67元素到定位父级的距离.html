@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            position: relative;
+            top: 150px;
+            left: 200px;
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+            margin-top: 30px;
+            margin-left: 20px;
+        }
+        .box{
+            position: absolute;
+            top: 110px;
+            left: 70px;
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            margin-top: 30px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="box"></div>
+    </div>
+    <script>
+    
+        var box = document.getElementById("box")
+        var bigBox = document.querySelector('.box')
+        /*
+            获取到定位父级的 top/left 距离
+            offsetLeft
+            offsetTop
+            
+            找定位父级遵循就近原则 没有就找body
+            offsetParent
+        */
+        var eLeft = box.offsetLeft
+        var eTop = box.offsetTop
+
+        var bigLeft = bigBox.offsetLeft
+        var bigTop = bigBox.offsetTop
+
+        var absParent = bigBox.offsetParent
+
+        console.log(eLeft,eTop)
+
+        console.log(bigLeft,bigTop)
+
+        console.log(absParent)
+
+    
+    </script>
+</body>
+</html>

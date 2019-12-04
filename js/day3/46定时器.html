@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="btn"></button>
+    <script>
+        
+        /*
+            setInterval 循环调用
+            setTimeout   只调用一次
+
+            clearInterval()
+            clearTimeout()        
+        */
+
+        function fn(){
+            console.log(1)
+        }
+        var timer = setInterval(fn,1000)    //循环调用函数 毫秒值
+        
+        //清空定时器,停止调用函数   这两种方法都可以
+        //clearInterval(timer)
+        clearTimeout(timer)
+
+        var btn = document.getElementById('btn')
+        var b = 1
+        var time = setInterval(function(){
+           
+            b++;
+            console.log(b)
+
+            if(b===15){
+                clearInterval(time)
+            }
+            btn.onclick = function(){
+                clearInterval(time)
+            }
+            
+        },1000)
+
+
+    </script>
+</body>
+</html>

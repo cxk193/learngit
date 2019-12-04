@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>冒泡排序</title>
+</head>
+<body>
+    <script>
+        
+        var arr = [7,8,9,4,5,6,1,2,3]
+        //这一层是比较的轮数
+        for(var i=0;i<arr.length-1;i++){
+
+            //这一层是比较的次数
+            for(var j=0;j<arr.length-1-i;j++){  //在arr.length-1的后面再减去一个i值减少不必要的比较次数
+
+                //前一项和后一项的值进行比较,然后交换位置
+                if(arr[j]>arr[j+1]){
+                    var temp = arr[j]
+                    arr[j] = arr[j+1]
+                    arr[j+1] = temp
+                }
+            }
+        }
+        console.log(arr)
+
+    </script>
+</body>
+</html>

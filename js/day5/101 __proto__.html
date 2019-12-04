@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    
+        /*通用原则
+            1.对象有__proto__属性,构造函数有prototype属性
+            2.对象由构造函数创建
+            3.生成对象时,对象的__proto__指向构造函数的prototype
+        没有修改对象的__proto__属性的指向,__proto__默认指向创建它的构造器
+        */
+        
+        function Person(){
+
+        }
+
+        let person = new Person()
+
+        console.log(person.__proto__ === Person.prototype) //true
+        console.log(person.__proto__ === person.prototype) //false
+
+    </script>
+
+
+</body>
+</html>

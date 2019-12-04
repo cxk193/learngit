@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+    
+        var box = document.getElementById('box')
+
+        window.requestAnimationFrame = window.requestAnimationFrame || function(){
+            return setTimeout(fn,1000/60)       
+        }
+        window.cancelAnimationFrame = window.cancelAnimationFrame || clearTimeout;
+
+        
+
+        animate(box,'width',500,1)
+
+        function animate(ele,attr,value,step){
+            //获取到初始的宽度
+            var startValue = parseFloat(getStyle(ele)[attr])
+            
+            var value = parseFloat(value)
+
+            var step = parseFloat(step)
+
+            //isDeraction 比较初始值和目标值返回的一个布尔值
+            var isDeraction = startValue>value
+            
+            //初始值大于设定的值,该属性程负的增长趋势
+            if(isDeraction){
+                step = -step
+            }
+            
+            fn()
+            function fn(){
+                //属性每次累加的值
+                startValue += step
+                var req;
+                /*                  为ture的分支          为false的分支
+                    isDeraction ? startvalue<= value : startValue>=value
+                    isDeraction 比较初始值和目标值返回的一个布尔值
+
+                    这里可能出现的两种情况
+                        1.初始值小于目标值,isDeration 被赋值为false,走为false的分支接着判断初始值和目标值,如果初始值大于目标值为假,递归调用fn函数,初始值每次加等于5,当初使值大于目标值的时候,初始值大于目标值为真,这时候将目标值赋值给初始值,清空动画帧
+                */
+                if(isDeraction ? startvalue<= value : startValue>=value){
+                    startValue = value
+                    cancelAnimationFrame(req)
+                }else{
+                    req = requestAnimationFrame(fn)
+                }
+                ele.style[attr] = startValue + 'px'
+            }
+        }
+        function getStyle(ele){
+            return (ele.currentStyle || getComputedStyle(ele))
+        }
+    </script>
+</body>
+</html>

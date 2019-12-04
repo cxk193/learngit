@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        var str = 'Never give up on what you really want to do. The person with big dreams is more powerful than one with all the facts'
+
+        var str1 = 'temaho'
+        var str2 = 'age'
+
+        console.log(str1.length) //一个字符一个长度
+
+        // charAt(index)
+        console.log(str1.charAt(1)) //根据字符所在位置的下标拿值
+
+        //原串.concat(拼接上去的字符串,,,,) 多个字符串逗号隔开
+        console.log(str1.concat(" "+str2))
+
+        //str.indexOf("查找的字符") 找不到返回 -1
+        console.log(str1.indexOf('e'))  //返回字符所在字符串中的下标
+
+        //str.charCodeAt()  返回指定位置的undecode编码
+        console.log(str1.charCodeAt(1))
+
+        //String.fromCharCode() 根据undecode编码返回字符串
+        console.log(String.fromCharCode(101))
+
+        //str.substring()   截取字符串  [从哪开始,不包括谁)
+        console.log(str1.substring(0,3))        //[1,3)
+
+        //str.substr(startIndex,length) 从下标开始 切长度 截取从下标开始,长度为 length 的一段字符串
+        console.log(str.substr(3,12))
+
+        //str.slice()   [从哪开始,不包括谁) 值为index
+        console.log(str1.slice(0,-2))   //从零开始,从左往右为正,从右往左为负
+    
+        //toLocaleUpperCase()   英文字母转大写
+        //toLocaleLowerCase()   英文字母转小写
+        console.log( str1.toLocaleUpperCase() )
+        console.log( str1.toLocaleUpperCase().toLocaleLowerCase())
+
+        //str1.match()   返回匹配所对应的的属性
+        console.log(str1.match('m'))
+
+        //str1.search() 匹配对应字符的下标
+        console.log(str1.search('o'))
+
+        //str1.replace('被替换的字符',替换的字符)    
+        console.log(str1.replace('o','gt'))    //返回一个新的字符串
+
+        //str1.split()  将字符串切割成一个数组
+        console.log(str1.split('')) //["t", "e", "m", "a", "h", "o"]
+    </script>
+</body>
+
+</html>

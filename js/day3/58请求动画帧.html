@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        /*
+            requestAnimationFrame() 高阶函数    
+
+            requestAnimationFrame() 以 1000/60 毫秒的速度调用函数
+
+
+            cancelAnimationFrame()  清除动画帧
+        */
+        var i=0
+        function fn(){
+            i++;
+            console.log(i)
+            requestAnimationFrame(fn)
+        }
+        // fn()
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>find 找到符合条件的值</title>
+</head>
+<body>
+    <script>
+    
+        //find() 找到符合条件的第一条数据
+
+
+    var arr = ['冰冰',2001,18,function(){},175,60]
+
+        var newArr =  arr.find((item,index,arr)=>{
+            
+            return  typeof item === 'number'
+        })
+
+        console.log(arr)
+        console.log(newArr)
+
+    </script>
+</body>
+</html>
